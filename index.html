@@ -17,7 +17,6 @@
             overflow: hidden;
             text-align: center;
         }
-
         h1 {
             color: #d32f2f;
             font-size: 2rem;
@@ -25,13 +24,11 @@
             margin-bottom: 50px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
-
         .container {
             position: relative;
             width: 100%;
             height: 300px;
         }
-
         .btn {
             padding: 15px 35px;
             font-size: 1.2rem;
@@ -43,7 +40,6 @@
             position: absolute;
             transition: transform 0.1s;
         }
-
         #yesBtn {
             background-color: #ff4081;
             color: white;
@@ -51,20 +47,17 @@
             transform: translateX(-120%);
             z-index: 10;
         }
-
         #noBtn {
             background-color: #9e9e9e;
             color: white;
             left: 50%;
             transform: translateX(20%);
         }
-
         .success-msg {
             color: #ff4081;
             font-size: 1.8rem;
             animation: heartBeat 1.5s infinite;
         }
-
         @keyframes heartBeat {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -73,9 +66,7 @@
     </style>
 </head>
 <body>
-
     <h1 id="question">Will you be my Valentine? ❤️</h1>
-
     <div class="container" id="mainContainer">
         <button class="btn" id="yesBtn" onclick="celebrate()">Yes!</button>
         <button class="btn" id="noBtn">No</button>
@@ -86,33 +77,29 @@
         const container = document.getElementById('mainContainer');
 
         const moveButton = () => {
-            // Calculate random positions within the screen limits
             const maxX = window.innerWidth - noBtn.offsetWidth - 20;
             const maxY = window.innerHeight - noBtn.offsetHeight - 20;
-            
+           
             const randomX = Math.floor(Math.random() * maxX);
             const randomY = Math.floor(Math.random() * maxY);
 
-            // Change from absolute in container to fixed on screen so it can fly anywhere
             noBtn.style.position = 'fixed';
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
-            noBtn.style.transform = 'none'; // Remove the initial centering
+            noBtn.style.transform = 'none';
         };
 
-        // Mobile touch trigger
         noBtn.addEventListener('touchstart', (e) => {
             e.preventDefault();
             moveButton();
         });
 
-        // Desktop mouse trigger
         noBtn.addEventListener('mouseover', moveButton);
 
         function celebrate() {
             document.body.innerHTML = `
                 <div class="success-msg">
-                    <h1>Yay! See you on the 14th! 🌹🥰</h1>
+                    <h1>See you in JOSH Idluu! 🌹🥰</h1>
                     <div style="font-size: 100px;">💖</div>
                     <p style="color: #d32f2f; font-weight: bold;">Can't wait!</p>
                 </div>
